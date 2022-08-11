@@ -4,7 +4,7 @@ from django.db.models import Avg, Count
 
 
 class Director(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
@@ -15,7 +15,7 @@ class Director(models.Model):
 
 
 class Movie(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, unique=True)
     description = models.TextField(null=True, blank=True)
     duration = models.DurationField()
     director = models.ForeignKey(Director, on_delete=models.CASCADE, null=True, related_name='movies')

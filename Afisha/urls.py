@@ -20,13 +20,13 @@ from Logins import views as login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/directors/', views.directors_view),
-    path('api/v1/movies/', views.movies_view),
-    path('api/v1/reviews/', views.reviews_view),
+    path('api/v1/directors/', views.DirectorsView.as_view()),
+    path('api/v1/movies/', views.MoviesView.as_view()),
+    path('api/v1/reviews/', views.ReviewsView.as_view()),
     path('api/v1/movies/review/<int:id>/', views.movie_view),
     path('api/v1/directors/<int:id>/', views.dir_view),
     path('api/v1/reviews/<int:id>/', views.rev_view),
     path('api/v1/movies/<int:id>/', views.movie_view),
-    path('api/v1/authorization/', login_view.authorization),
-    path('api/v1/registration/', login_view.registration)
+    path('api/v1/authorization/', login_view.Authorization.as_view()),
+    path('api/v1/registration/', login_view.Registration.as_view())
 ]
